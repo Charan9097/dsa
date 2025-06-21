@@ -38,4 +38,24 @@ function twoSum(nums, target){
     return null;
 }
 
+function twoSumOptimized(arr, target){
+  if(arr.length <= 1) return null;
+  
+  const hashMap = new Map();
+  
+  for(let p1=0; p1 < arr.length; p1++){
+    const numberToFind = target - arr[p1];
+    
+    
+    if(hashMap.has(arr[p1])){
+      return [hashMap.get(arr[p1]), p1];
+    }
+    
+    hashMap.set(numberToFind, p1);
+    
+  }
+  
+  return null;
+}
+
 console.log(twoSum([1,3,7,9,2], 11))
